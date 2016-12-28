@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Vulop.Models.Service> 
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Serviços</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Duração</th>
+        </tr>
+    </thead>
+    @foreach (Vulop.Models.Service item in Model)
+    {
+        <tr>
+            <td>@item.Description</td>
+            <td>@item.Duration</td>
+        </tr>
+    }
+</table>
+<button type="button" id="addServiceButton"
+        onclick="location.href='<%: @Url.Action("ShowAdd", "Service") %>'">
+    Search
+</button>
+
