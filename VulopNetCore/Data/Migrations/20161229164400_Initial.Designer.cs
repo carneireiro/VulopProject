@@ -8,9 +8,10 @@ using VulopNetCore.Data;
 namespace VulopNetCore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161229164400_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -121,20 +122,6 @@ namespace VulopNetCore.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("VulopNetCore.Data.Service", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
-
-                    b.Property<TimeSpan>("Duration");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("VulopNetCore.Models.ApplicationUser", b =>
